@@ -4,12 +4,12 @@ const app = express();
 app.get("/", (request, response) => {
   const date = new Date();
   const result = addDays(
-    new Date(date.getFullYear(), date.getMonth(), date.getDay()),
+    new Date(date.getFullYear(), date.getMonth(), date.getDate()),
     100
   );
-  response.send(`
-            ${result.getDate()}/${result.getMonth() + 1}/${result.getFullYear()}
-        `);
+  response.send(
+    `${result.getDate()}/${result.getMonth() + 1}/${result.getFullYear()}`
+  );
 });
 
 module.exports = app;
